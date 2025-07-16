@@ -15,40 +15,38 @@ def setparameters(departure, arrival, outbound_date, return_date):
 
     return params
 
-vuelos = []
+def searchflights(departure, arrival, outbound_date, return_date):
+  vuelos = []
+  params = setparameters(departure, arrival, outbound_date, return_date)
+  search = GoogleSearch(params)
+  results = search.get_dict()['best_flights']
 
-params = setparameters("ELP", "LAX", "2025-07-17","2025-07-22" )
-search = GoogleSearch(params)
-results = search.get_dict()['best_flights']
+  for item in results:
+      flights = item.get('flights')
+      departureairport = flights[0]['departure_airport']['name']
+      departuretime = flights[0]['departure_airport']['time']
+      arrivalairport = flights[0]['arrival_airport']['name']
+      arrivaltime = flights[0]['arrival_airport']['time']
+      airplane = flights[0]['airplane']
+      airline = flights[0]['airline']
+      flightnumber = flights[0]['flight_number']
+      totalduration = item.get('total_duration')
+      price = item.get('price')
+      flight_info = {
+        "departureairport":departureairport,
+        "departuretime": departuretime,
+        "arrivalairport": arrivalairport,
+        "arrivaltime": arrivaltime,
+        "airplane": airplane,
+        "airline": airline,
+        "flightnumber": flightnumber,
+        "totalduration": totalduration,
+        "price": price
+      }
+      vuelos.append(flight_info)
+  
+  return vuelos
 
-with open("output.json", "w") as file:
-  json.dump(results, file, indent=4)# Code to write JSON data will go here
-
-for item in results:
-    flights = item.get('flights')
-    departureairport = flights[0]['departure_airport']['name']
-    departuretime = flights[0]['departure_airport']['time']
-    arrivalairport = flights[0]['arrival_airport']['name']
-    arrivaltime = flights[0]['arrival_airport']['time']
-    airplane = flights[0]['airplane']
-    airline = flights[0]['airline']
-    flightnumber = flights[0]['flight_number']
-    totalduration = item.get('total_duration')
-    price = item.get('price')
-    flight_info = {
-       "departureairport":departureairport,
-       "departuretime": departuretime,
-       "arrivalairport": arrivalairport,
-       "arrivaltime": arrivaltime,
-       "airplane": airplane,
-       "airline": airline,
-       "flightnumber": flightnumber,
-       "totalduration": totalduration,
-       "price": price
-    }
-    vuelos.append(flight_info)
-    
-print(vuelos)
-    #print(departureairport + " " + departuretime)
-    #print(arrivalairport + " " + arrivaltime)
-    #print(airplane + " " + airline + " " + flightnumber + " " + str(totalduration) + " " + str(price))
+#with open("output.json", "w") as file:
+#  json.dump(results, file, indent=4)# Code to write JSON data will go here
+#Falta poder agregar las escalas que tienen ciertos vuelos, actualmente solo funciona bien para vuelos directos (15 julio 2025)
