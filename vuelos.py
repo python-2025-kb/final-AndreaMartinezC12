@@ -35,6 +35,20 @@ for item in results:
     flightnumber = flights[0]['flight_number']
     totalduration = item.get('total_duration')
     price = item.get('price')
-    print(departureairport + " " + departuretime)
-    print(arrivalairport + " " + arrivaltime)
-    print(airplane + " " + airline + " " + flightnumber + " " + str(totalduration) + " " + str(price))
+    flight_info = {
+       "departureairport":departureairport,
+       "departuretime": departuretime,
+       "arrivalairport": arrivalairport,
+       "arrivaltime": arrivaltime,
+       "airplane": airplane,
+       "airline": airline,
+       "flightnumber": flightnumber,
+       "totalduration": totalduration,
+       "price": price
+    }
+    vuelos.append(flight_info)
+    
+print(vuelos)
+    #print(departureairport + " " + departuretime)
+    #print(arrivalairport + " " + arrivaltime)
+    #print(airplane + " " + airline + " " + flightnumber + " " + str(totalduration) + " " + str(price))
