@@ -1,5 +1,6 @@
 from serpapi import GoogleSearch
 import json
+from datetime import datetime
 
 def setparameters(location, checkin, checkout, numberpeople):
     params = {
@@ -16,6 +17,13 @@ def setparameters(location, checkin, checkout, numberpeople):
 
     return params
 
+def calculate_nights(start_date, end_date):
+    format_string = "%Y-%m-%d"
+    startdate = datetime.strptime(start_date, format_string)
+    enddate = datetime.strptime(end_date, format_string)
+    nights = enddate - startdate
+    return nights
+
 def searchhotels(location, checkin, checkout, numberpeople):
     hoteles = []
     params = setparameters(location, checkin, checkout, numberpeople)
@@ -28,12 +36,16 @@ def searchhotels(location, checkin, checkout, numberpeople):
        rating = item.get('overall_rating')
        price = item.get('extracted_price')
        thumbnail = item.get('thumbnail')
+       nights = calculate_nights(checkin, checkout)
+       totalprice = price * nights.days
        hotel_info = {
             "hotelname":name,
             "coordinates": coordinates,
             "rating": rating,
             "price": price,
-            "thumbnail": thumbnail
+            "thumbnail": thumbnail,
+            "nights": nights.days,
+            "totalprice": totalprice
         }
        hoteles.append(hotel_info)
 
