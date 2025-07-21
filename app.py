@@ -24,7 +24,7 @@ def formulario():
         personas = request.form['personas']
         presupuesto = request.form['presupuesto']
         resultadohoteles = hoteles.searchhotels(destino, fechasalida, fecharegreso, personas)
-        resultadovuelos = vuelos.searchflights(aeropuertoorigen, aeropuertodestino, fechasalida, fecharegreso)
+        resultadovuelos = vuelos.searchflights(aeropuertoorigen, aeropuertodestino, fechasalida, fecharegreso, personas)
         print(resultadovuelos)
         #contador_id += 1
         return redirect(url_for('resultados'))

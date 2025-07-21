@@ -1,7 +1,7 @@
 from serpapi import GoogleSearch
 import json
 
-def setparameters(departure, arrival, outbound_date, return_date):
+def setparameters(departure, arrival, outbound_date, return_date, adults):
     params = {
       "engine": "google_flights",
       "departure_id": departure,
@@ -9,15 +9,16 @@ def setparameters(departure, arrival, outbound_date, return_date):
       "outbound_date": outbound_date,
       "return_date": return_date,
       "currency": "MXN",
+      "adults": adults,
       "hl": "en",
       "api_key": "9d7d027cff59c9d81a06238f00abeb0574471f5da88e2ad8b7b5021c7002d8af"
     }
 
     return params
 
-def searchflights(departure, arrival, outbound_date, return_date):
+def searchflights(departure, arrival, outbound_date, return_date, adults):
   vuelos = []
-  params = setparameters(departure, arrival, outbound_date, return_date)
+  params = setparameters(departure, arrival, outbound_date, return_date, adults)
   search = GoogleSearch(params)
   results = search.get_dict()['best_flights']
 
