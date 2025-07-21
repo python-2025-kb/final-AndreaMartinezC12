@@ -46,7 +46,6 @@ def searchflights(departure, arrival, outbound_date, return_date):
       vuelos.append(flight_info)
   
   return vuelos
-
 #with open("output.json", "w") as file:
 #  json.dump(results, file, indent=4)# Code to write JSON data will go here
 #Falta poder agregar las escalas que tienen ciertos vuelos, actualmente solo funciona bien para vuelos directos (15 julio 2025)
