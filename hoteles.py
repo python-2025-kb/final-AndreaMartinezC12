@@ -27,11 +27,13 @@ def searchhotels(location, checkin, checkout, numberpeople):
        coordinates = item.get('gps_coordinates')
        rating = item.get('overall_rating')
        price = item.get('extracted_price')
+       thumbnail = item.get('thumbnail')
        hotel_info = {
             "hotelname":name,
             "coordinates": coordinates,
             "rating": rating,
-            "price": price
+            "price": price,
+            "thumbnail": thumbnail
         }
        hoteles.append(hotel_info)
 
