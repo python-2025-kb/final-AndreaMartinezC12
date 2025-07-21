@@ -24,10 +24,19 @@ def searchflights(departure, arrival, outbound_date, return_date, adults):
 
   for item in results:
       flights = item.get('flights')
+      layovers = item.get('layovers')
+      if layovers != None:
+         layoverduration= layovers[0]['duration']
+         layoverairport= layovers[0]['name']
+         arrivalairport = flights[1]['arrival_airport']['name']
+         arrivaltime = flights[1]['arrival_airport']['time']
+      else:
+          layoverduration= "none"
+          layoverairport= "none"
+          arrivalairport = flights[0]['arrival_airport']['name']
+          arrivaltime = flights[0]['arrival_airport']['time']
       departureairport = flights[0]['departure_airport']['name']
       departuretime = flights[0]['departure_airport']['time']
-      arrivalairport = flights[0]['arrival_airport']['name']
-      arrivaltime = flights[0]['arrival_airport']['time']
       airplane = flights[0]['airplane']
       airline = flights[0]['airline']
       flightnumber = flights[0]['flight_number']
@@ -42,6 +51,8 @@ def searchflights(departure, arrival, outbound_date, return_date, adults):
         "airline": airline,
         "flightnumber": flightnumber,
         "totalduration": totalduration,
+        "layoverduration": layoverduration,
+        "layoverairport": layoverairport,
         "price": price
       }
       vuelos.append(flight_info)
