@@ -11,7 +11,10 @@
     <ul>Aerolinea: {{opcionesvuelos[0].airline}}</ul>
     <ul>Aeropuerto de salida: {{opcionesvuelos[0].departureairport}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[0].arrivalairport}}</ul>
-    <ul>Escalas: {{opcionesvuelos[0].layoverairport}},  Duracion: {{opcionesvuelos[0].layoverduration}} minutos</ul>
+    <ul>Cantidad de escalas: {{opcionesvuelos[0].layoverqty}}</ul>
+    {%for l in opcionesvuelos[0].layovers%}
+        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+    {%endfor%}
     <ul>Hora de salida: {{opcionesvuelos[0].departuretime}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[0].arrivaltime}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[0].airplane}}</ul>
@@ -35,7 +38,10 @@
     <h2>Vuelo</h2>
     <ul>Aerolinea: {{opcionesvuelos[1].airline}}</ul>
     <ul>Aeropuerto de salida: {{opcionesvuelos[1].departureairport}}</ul>
-    <ul>Escalas: {{opcionesvuelos[1].layoverairport}}, Duracion: {{opcionesvuelos[1].layoverduration}} minutos</ul>
+    <ul>Cantidad de escalas: {{opcionesvuelos[0].layoverqty}}</ul>
+    {%for l in opcionesvuelos[0].layovers%}
+        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+    {%endfor%}
     <ul>Aeropuerto de llegada: {{opcionesvuelos[1].arrivalairport}}</ul>
     <ul>Hora de salida: {{opcionesvuelos[1].departuretime}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[1].arrivaltime}}</ul>
@@ -61,7 +67,10 @@
     <ul>Aerolinea: {{opcionesvuelos[2].airline}}</ul>
     <ul>Aeropuerto de salida: {{opcionesvuelos[2].departureairport}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[2].arrivalairport}}</ul>
-    <ul>Escalas: {{opcionesvuelos[2].layoverairport}},  Duracion: {{opcionesvuelos[2].layoverduration}} minutos</ul>
+    <ul>Cantidad de escalas: {{opcionesvuelos[0].layoverqty}}</ul>
+    {%for l in opcionesvuelos[0].layovers%}
+        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+    {%endfor%}
     <ul>Hora de salida: {{opcionesvuelos[2].departuretime}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[2].arrivaltime}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[2].airplane}}</ul>
