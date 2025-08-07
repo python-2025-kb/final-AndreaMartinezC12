@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import hoteles
 import vuelos
+import atracciones
 
 app=Flask(__name__)
 
@@ -26,6 +27,7 @@ def home():
 def formulario():
     global resultadohoteles
     global resultadovuelos
+    global resultadoatracciones
     global cumplepresupuesto
     cumplepresupuesto=[]
     if request.method == 'POST':
@@ -39,6 +41,7 @@ def formulario():
         
         resultadohoteles = hoteles.searchhotels(destino, fechasalida, fecharegreso, personas)
         resultadovuelos = vuelos.searchflights(aeropuertoorigen, aeropuertodestino, fechasalida, fecharegreso, personas)
+        resultadoatracciones = atracciones.search_attractions(destino)
 
         for i in range(0, 3):
             cumplepresupuesto.append(calculopresupuesto(presupuesto, resultadohoteles[i]['totalprice'], resultadovuelos[i]['price']))
@@ -48,7 +51,7 @@ def formulario():
 
 @app.route('/resultados')
 def resultados():
-    return render_template('resultados.html', opcioneshoteles = resultadohoteles, opcionesvuelos=resultadovuelos, cumplepresupuesto = cumplepresupuesto)
+    return render_template('resultados.html', opcioneshoteles = resultadohoteles, opcionesvuelos=resultadovuelos, cumplepresupuesto = cumplepresupuesto, opcionesatracciones = resultadoatracciones)
 
 if __name__ == '__main__':
     app.run(debug=True)

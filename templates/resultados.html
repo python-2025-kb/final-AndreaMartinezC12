@@ -8,6 +8,7 @@
 <body>
     <h1>Opcion 1 para tu viaje</h1>
     <h2>Vuelo</h2>
+    <h3>Vuelo de ida</h3>
     <ul>Aerolinea: {{opcionesvuelos[0].airline}}</ul>
     <ul>Aeropuerto de salida: {{opcionesvuelos[0].departureairport}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[0].arrivalairport}}</ul>
@@ -89,5 +90,15 @@
 
     <h3>El costo total por esta opcion es de: ${{opcioneshoteles[2].totalprice + opcionesvuelos[2].price}}MXN</h3>
     <h3>Esta opcion {{cumplepresupuesto[2]}} cumple con tu presupuesto</h3>
+
+    <h1>Atracciones para visitar</h1>
+    {%for a in opcionesatracciones%}
+        <ul>Nombre: {{a.name}}</ul>
+        <ul>Precio: {{a.price}}USD</ul>
+        <ul><img src={{a.thumbnail}} alt="atraccion" /></ul>
+        <ul>&nbsp</ul>
+
+    {%endfor%}
+
 </body>
 </html>
