@@ -11,8 +11,6 @@ cumplepresupuesto=[]
 
 def calculopresupuesto(presupuesto, costovuelo, costohotel):
     costototal = int(costohotel) + int(costovuelo)
-    print(costototal)
-    print(presupuesto)
     if costototal > int(presupuesto):
         return "NO"
     elif costototal < int(presupuesto):
@@ -42,6 +40,26 @@ def formulario():
         resultadohoteles = hoteles.searchhotels(destino, fechasalida, fecharegreso, personas)
         resultadovuelos = vuelos.searchflights(aeropuertoorigen, aeropuertodestino, fechasalida, fecharegreso, personas)
         resultadoatracciones = atracciones.search_attractions(destino)
+
+
+        if resultadovuelos[0]['layoverqty_dep'] == 0:
+            resultadovuelos[0]['layovers_dep'] = "None"
+
+        if resultadovuelos[1]['layoverqty_ret'] == 0:
+            resultadovuelos[1]['layovers_ret'] = "None"
+
+        if resultadovuelos[2]['layoverqty_dep'] == 0:
+            resultadovuelos[2]['layovers_dep'] = "None"
+
+        if resultadovuelos[3]['layoverqty_ret'] == 0:
+            resultadovuelos[3]['layovers_ret'] = "None"
+
+        if resultadovuelos[4]['layoverqty_dep'] == 0:
+            resultadovuelos[4]['layovers_dep'] = "None"
+
+        if resultadovuelos[5]['layoverqty_ret'] == 0:
+            resultadovuelos[5]['layovers_ret'] = "None"
+       
 
         for i in range(0, 3):
             cumplepresupuesto.append(calculopresupuesto(presupuesto, resultadohoteles[i]['totalprice'], resultadovuelos[i]['price']))

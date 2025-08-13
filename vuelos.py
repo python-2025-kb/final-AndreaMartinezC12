@@ -20,6 +20,7 @@ def searchdepartingflights(params):
   departflights = []
   search = GoogleSearch(params)
   results = search.get_dict()['best_flights']
+  layoverqty = 0
 
   for item in results:
       flights = item.get('flights')
@@ -30,6 +31,7 @@ def searchdepartingflights(params):
       else:
           arrivalairport = flights[0]['arrival_airport']['name']
           arrivaltime = flights[0]['arrival_airport']['time']
+          layovers = 0
       departureairport = flights[0]['departure_airport']['name']
       departuretime = flights[0]['departure_airport']['time']
       arrivaltime = flights[0]['arrival_airport']['time']
