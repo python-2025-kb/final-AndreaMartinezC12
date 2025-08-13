@@ -13,9 +13,11 @@
     <ul>Aeropuerto de salida: {{opcionesvuelos[0].departureairport_dep}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[0].arrivalairport_dep}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[0].layoverqty_dep}}</ul>
-    {%for l in opcionesvuelos[0].layovers_dep%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[0].layoverqty_dep != 0%}
+        {%for l in opcionesvuelos[0].layovers_dep%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Hora de salida: {{opcionesvuelos[0].departuretime_dep}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[0].arrivaltime_dep}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[0].airplane_dep}}</ul>
@@ -27,9 +29,11 @@
     <ul>Aeropuerto de salida: {{opcionesvuelos[1].departureairport_ret}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[1].arrivalairport_ret}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[1].layoverqty_ret}}</ul>
-    {%for l in opcionesvuelos[1].layovers_ret%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[1].layoverqty_ret != 0%}
+        {%for l in opcionesvuelos[1].layovers_ret%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Hora de salida: {{opcionesvuelos[1].departuretime_ret}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[1].arrivaltime_ret}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[1].airplane_ret}}</ul>
@@ -57,9 +61,11 @@
     <ul>Aerolinea: {{opcionesvuelos[2].airline_dep}}</ul>
     <ul>Aeropuerto de salida: {{opcionesvuelos[2].departureairport_dep}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[2].layoverqty_dep}}</ul>
-    {%for l in opcionesvuelos[2].layovers_dep%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[2].layoverqty_dep != 0%}
+        {%for l in opcionesvuelos[2].layovers_dep%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Aeropuerto de llegada: {{opcionesvuelos[2].arrivalairport_dep}}</ul>
     <ul>Hora de salida: {{opcionesvuelos[2].departuretime_dep}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[2].arrivaltime_dep}}</ul>
@@ -73,9 +79,11 @@
     <ul>Aeropuerto de salida: {{opcionesvuelos[3].departureairport_ret}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[3].arrivalairport_ret}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[3].layoverqty_ret}}</ul>
-    {%for l in opcionesvuelos[3].layovers_ret%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[3].layoverqty_ret != 0%}
+        {%for l in opcionesvuelos[3].layovers_ret%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Hora de salida: {{opcionesvuelos[3].departuretime_ret}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[3].arrivaltime_ret}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[3].airplane_ret}}</ul>
@@ -104,9 +112,11 @@
     <ul>Aeropuerto de salida: {{opcionesvuelos[4].departureairport_dep}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[4].arrivalairport_dep}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[4].layoverqty_dep}}</ul>
-    {%for l in opcionesvuelos[4].layovers_dep%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[4].layoverqty_dep != 0%}
+        {%for l in opcionesvuelos[4].layovers_dep%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Hora de salida: {{opcionesvuelos[4].departuretime_dep}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[4].arrivaltime_dep}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[4].airplane_dep}}</ul>
@@ -118,9 +128,11 @@
     <ul>Aeropuerto de salida: {{opcionesvuelos[5].departureairport_ret}}</ul>
     <ul>Aeropuerto de llegada: {{opcionesvuelos[5].arrivalairport_ret}}</ul>
     <ul>Cantidad de escalas: {{opcionesvuelos[5].layoverqty_ret}}</ul>
-    {%for l in opcionesvuelos[5].layovers_ret%}
-        <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
-    {%endfor%}
+    {%if opcionesvuelos[5].layoverqty_ret != 0%}
+        {%for l in opcionesvuelos[5].layovers_ret%}
+            <ul>Escala: {{l.name}}, Duracion: {{l.duration}} minutos</ul>
+        {%endfor%}
+    {%endif%}
     <ul>Hora de salida: {{opcionesvuelos[5].departuretime_ret}}</ul>
     <ul>Hora de llegada: {{opcionesvuelos[5].arrivaltime_ret}}</ul>
     <ul>Tipo de avion: {{opcionesvuelos[5].airplane_ret}}</ul>
